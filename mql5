@@ -1,0 +1,75 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                              Smart entry trigger arrows.mq5|
+//|                                   Copyright 2022, Forex Robot Easy Team|
+//|                                         https://forexroboteasy.com|
+//+------------------------------------------------------------------+
+#property copyright 'Copyright 2022, Forex Robot Easy Team'
+#property link      'https://forexroboteasy.com'
+#property version   '1.00'
+#property description 'Smart Entry Trigger Arrows indicator'
+
+//+------------------------------------------------------------------+
+//| Indicator input parameters                                      |
+//+------------------------------------------------------------------+
+input int cycle_period = 14; // Adjustable cycle period
+
+//+------------------------------------------------------------------+
+//| Indicator initialization function                                |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Add initialization code here
+
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Indicator deinitialization function                              |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Add deinitialization code here
+}
+
+//+------------------------------------------------------------------+
+//| Indicator calculation function                                   |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &time[],
+                const double &open[],
+                const double &high[],
+                const double &low[],
+                const double &close[],
+                const long &tick_volume[],
+                const long &volume[],
+                const int &spread[])
+{
+   // Add calculation code here
+
+   int limit = rates_total - prev_calculated;
+   if (limit <= 0)
+      return(0);
+
+   for (int i = 0; i < limit; i++)
+   {
+      // Generate trigger signals based on the Smart Entry Trigger Arrows indicator
+
+      // Add your trigger entry code here
+
+      // Adjustable sensibility based on cycle period
+      if (cycle_period < 10)
+      {
+         // Execute quicker signals
+         // Add your code here to generate quicker signals
+      }
+      else
+      {
+         // Execute normal signals
+         // Add your code here to generate normal signals
+      }
+   }
+
+   return(rates_total);
+}
